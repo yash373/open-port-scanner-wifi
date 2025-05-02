@@ -1,6 +1,7 @@
 # Imports
 import ipaddress
 import socket
+import os
 
 hostname = socket.gethostname()
 IPAddr = socket.gethostbyname(hostname)
@@ -25,7 +26,9 @@ def get_subnet(ip_address_with_prefix):
     return None
 
 # Run nmap to get open ports on network range
+def run_nmap(subnet):
+    os.system(f"nmap -p- {subnet}")
 
 # Run Script
 if __name__ == "__main__":
-    print(get_subnet(IPAddr))
+    run_nmap(get_subnet(f"{IPAddr}"))
