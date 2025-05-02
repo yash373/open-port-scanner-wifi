@@ -1,5 +1,9 @@
 # Imports
 import ipaddress
+import socket
+
+hostname = socket.gethostname()
+IPAddr = socket.gethostbyname(hostname)
 
 # Get network range of wifi
 def get_subnet(ip_address_with_prefix):
@@ -24,4 +28,4 @@ def get_subnet(ip_address_with_prefix):
 
 # Run Script
 if __name__ == "__main__":
-    print(get_subnet("192.168.1.184"))
+    print(get_subnet(IPAddr))
